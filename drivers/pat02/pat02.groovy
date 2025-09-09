@@ -46,6 +46,7 @@
 // Version 2.1.1    Fix zero comparison that prevented disabling of various reports
 // Version 2.1.2    Revert explicit setting of isStateChange
 // Version 3.0.0    Code restructure and cleanup
+// Version 3.1.0    Remove call to wakeUpNoMoreInformation
 //
 
 // Supported Z-Wave Classes:
@@ -77,9 +78,9 @@ metadata
         importUrl: "https://raw.githubusercontent.com/dennypage/hubitat/master/drivers/pat02/pat02.groovy"
     )
     {
+        capability "Sensor"
         capability "TemperatureMeasurement"
         capability "RelativeHumidityMeasurement"
-        capability "Sensor"
         capability "WaterSensor"
         capability "Refresh"
         capability "Configuration"
@@ -264,8 +265,10 @@ void deviceSync() {
         cmds.add(zwave.sensorBinaryV2.sensorBinaryGet(sensorType: 6))
     }
 
-    cmds.add(zwave.wakeUpV2.wakeUpNoMoreInformation())
-    sendCmds(cmds)
+    // NB: sending wakeUpNoMoreInformation interferes with operations such as re-interview or firmeware update
+    if (cmds) {
+        sendCmds(cmds)
+    }
 }
 
 void logsOff() {

@@ -30,6 +30,8 @@
 // Version 1.1.0    Put Supervision handling back
 // Version 1.2.0    Discard out of range temperature or humidity values
 // Version 1.2.1    Report values for heat/humidity alerts
+// Version 1.3.0    Adjust decimal values for parameter inputs
+//                  Remove call to wakeUpNoMoreInformation
 //
 
 // Supported Z-Wave Classes:
@@ -87,7 +89,7 @@ metadata
 
 @Field static final Map<Integer,Map> deviceParamaters = [
     3: [name: "temperatureReportThreshold", title: "Temperature report threshold (°F)",
-        type: "decimal", size: "1", defaultValue: "2.0", range: "1.0..10.0",
+        type: "decimal", size: "1", defaultValue: "2.0", range: "1..10",
         description: "range:&nbsp 1.0 &nbsp—&nbsp 10.0"],
 
     16: [name: "temperatureReportInterval", title: "Temperature Report Interval (min)",
@@ -95,7 +97,7 @@ metadata
         description: "range:&nbsp 0 (disabled), &nbsp 1 &nbsp—&nbsp 480"],
 
     14: [name: "temperatureSensorOffset", title: "Temperature sensor offset (°F)",
-        type: "decimal", size: "1", defaultValue: "0.0", range: "-10.0..10.0",
+        type: "decimal", size: "1", defaultValue: "0.0", range: "-10..10",
         description: "range:&nbsp -10.0 &nbsp—&nbsp +10.0", parameterMap: "mapSensorOffsetParameter"],
 
     4: [name: "humidityReportThreshold", title: "Humidity report threshold (%RH)",
@@ -107,7 +109,7 @@ metadata
         description: "range:&nbsp 0 (disabled) &nbsp—&nbsp 480"],
 
     15: [name: "humiditySensorOffset", title: "Humidity sensor offset (%RH)",
-        type: "decimal", size: "1", defaultValue: "0.0", range: "-10.0..10.0",
+        type: "decimal", size: "1", defaultValue: "0.0", range: "-10..10",
         description: "range:&nbsp -10.0 &nbsp—&nbsp +10.0", parameterMap: "mapSensorOffsetParameter"],
 
     1: [name: "batteryReportThreshold", title: "Battery report threshold (%)",
@@ -258,8 +260,10 @@ void deviceSync() {
         cmds.add(zwave.sensorMultilevelV11.sensorMultilevelGet(sensorType: 5))
     }
 
-    cmds.add(zwave.wakeUpV2.wakeUpNoMoreInformation())
-    sendCmds(cmds)
+    // NB: sending wakeUpNoMoreInformation interferes with operations such as re-interview or firmeware update
+    if (cmds) {
+        sendCmds(cmds)
+    }
 }
 
 void logsOff() {

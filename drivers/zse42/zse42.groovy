@@ -28,6 +28,7 @@
 // Version 1.0.0    Initial release
 // Version 1.1.0    Put Supervision handling back
 // Version 1.1.1    Fix refresh issue while sensor is wet
+// Version 1.2.0    Remove call to wakeUpNoMoreInformation
 //
 
 // Supported Z-Wave Classes:
@@ -227,8 +228,10 @@ void deviceSync() {
         cmds.add(zwave.notificationV8.notificationGet(notificationType: 5, event: 2))
     }
 
-    cmds.add(zwave.wakeUpV2.wakeUpNoMoreInformation())
-    sendCmds(cmds)
+    // NB: sending wakeUpNoMoreInformation interferes with operations such as re-interview or firmeware update
+    if (cmds) {
+        sendCmds(cmds)
+    }
 }
 
 void logsOff() {
