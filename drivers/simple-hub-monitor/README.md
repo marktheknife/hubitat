@@ -17,5 +17,10 @@ Simple Hub Monitor produces the following events:
 
 **temperature** is the temperature of the CPU. The value is in degrees Celsius or Fahrenheit as determined by the Temp Scale setting in Hub Details.
 
+Simple Hub Monitor also provides two custom functions that may be used for automation:
+
+**reboot** Initiate an immediate reboot of the hub.
+
+**rebootWithRebuild** Initiate an immediate reboot of the hub and rebuild the database on startup.
 
 **Please note that Simple Hub Monitor requires firmware version 2.4.3.127 or above**
