@@ -1,0 +1,19 @@
+{
+  "packageName": "Simple Hub Monitor",
+  "minimumHEVersion": "2.4.3",
+  "author": "Denny Page",
+  "version": "1.0.0",
+  "dateReleased": "2025-10-09",
+  "releaseNotes": "1.0.0 Initial release",
+  "documentationLink": "https://github.com/dennypage/hubitat/tree/master/drivers/simple-hub-monitor",
+  "communityLink": "https://community.hubitat.com/t/release-simple-hub-monitor/157677",
+  "drivers": [
+    {
+      "id": "c406b037-e4d2-4402-a852-e59cca787c27",
+      "name": "Simple Hub Monitor",
+      "namespace": "cococafe",
+      "location": "https://raw.githubusercontent.com/dennypage/hubitat/master/drivers/simple-hub-monitor/simple-hub-monitor",
+      "required": true
+    }
+  ]
+}

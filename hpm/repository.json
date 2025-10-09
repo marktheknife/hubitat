@@ -74,6 +74,13 @@
       "description": "A simple reminder notification system for contact sensors (doors/windows/etc.) that have been left open"
     },
     {
+      "name": "Simple Hub Monitor",
+      "category": "Utility",
+      "tags": ["Tools & Utilities"],
+      "location": "https://raw.githubusercontent.com/dennypage/hubitat/master/hpm/simple-hub-monitor.json",
+      "description": "Lightweight driver to feed monitoring tools such as InfluxDB-Logger"
+    },
+    {
       "name": "Simple Idle Alerts",
       "category": "Convenience",
       "tags": ["Notifications", "Monitoring"],
