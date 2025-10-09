@@ -16,3 +16,6 @@ Simple Hub Monitor produces the following events:
 **dbSize** is the size of the hub database as reported by the system. The value is in MB.
 
 **temperature** is the temperature of the CPU. The value is in degrees Celsius or Fahrenheit as determined by the Temp Scale setting in Hub Details.
+
+
+**Please note that Simple Hub Monitor requires firmware version 2.4.3.127 or above**
