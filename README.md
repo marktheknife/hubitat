@@ -7,6 +7,7 @@
 * [Philio PAT02 Flood / Temperature / Humidity sensor](drivers/pat02)
 * [Philio PAT02-B Temperature / Humidity sensor](drivers/pat02-b)
 * [Ring Range Extender gen2](drivers/ring-re2)
+* [Simple Hub Monitor](drivers/simple-hub-monitor)
 * [Somfy Z-Wave to RTS Interface II (ZRTSII)](drivers/zrtsii)
 * [WeeWX to Hubitat device](drivers/weewx)
 * [Zooz Temperature / Humidity XS Sensor ZSE44](drivers/zse44)
