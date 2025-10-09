@@ -9,10 +9,10 @@
   "communityLink": "https://community.hubitat.com/t/release-simple-hub-monitor/157677",
   "drivers": [
     {
-      "id": "c406b037-e4d2-4402-a852-e59cca787c27",
+      "id": "2a82e05d-dab1-4b4d-9f03-1320bbef808f",
       "name": "Simple Hub Monitor",
       "namespace": "cococafe",
-      "location": "https://raw.githubusercontent.com/dennypage/hubitat/master/drivers/simple-hub-monitor/simple-hub-monitor",
+      "location": "https://raw.githubusercontent.com/dennypage/hubitat/master/drivers/simple-hub-monitor/simple-hub-monitor.groovy",
       "required": true
     }
   ]
