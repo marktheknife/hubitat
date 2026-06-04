@@ -30,6 +30,7 @@
  * Simple cpu/mem/db/temp monitor device.
  *
  * Version 1.0.0    Initial release
+ * Version 1.1.0.   Change Reboot with Rebuild application content type to json.
  */
 
 metadata {
@@ -236,8 +237,8 @@ private void sendHubRebootCommand(Boolean rebuild = false) {
         path: '/hub/reboot'
     ]
     if (rebuild) {
-        postParams['contentType'] = 'application/x-www-form-urlencoded'
-        postParams['body'] = 'rebuildDatabase:"true"'
+        postParams['contentType'] = 'application/json'
+        postParams['body'] = '{"rebuildDatabase": true}'
     }
 
     log.warn('sending hub reboot command...')
